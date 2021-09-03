@@ -1,6 +1,7 @@
 $hovered-backgroundcolor : #3c236b;
 $selected-backgroundcolor : #522f92;
 $hovered-color: #e3cd78;
+$secondary-color: #ffd740;
 
 @mixin user-select($property) {
     user-select: $property;
@@ -34,7 +35,6 @@ mat-toolbar-row {
     border-radius: 10%;
   
     @include user-select(none);
-
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
 }
