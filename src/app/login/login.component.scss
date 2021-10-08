@@ -1,0 +1,49 @@
+.container {
+    margin: 0 auto;
+    display: flex;
+    width: max-content;
+    background-color: white;
+    padding: 2rem;
+}
+.login-control {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+.form-group {
+    margin: 0 auto;
+}
+
+section {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.divider-container {
+    display: flex;
+}
+
+.others-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.others-element-right {
+    @extend .login-control;
+    margin-left: 2px;
+}
+
+.others-element-left {
+    @extend .login-control;
+    margin-right: 2px;
+}
+
+mat-divider {
+    margin-bottom: 1em;
+}
+
+.login-element {
+    @extend .login-control;
+    margin-bottom: 1em;
+}
