@@ -3,7 +3,7 @@
     display: flex;
     width: max-content;
     background-color: white;
-    padding: 2rem;
+    padding: 2em;
 }
 .login-control {
     margin: 0 auto;
@@ -11,13 +11,9 @@
     width: 100%;
 }
 
-.form-group {
-    margin: 0 auto;
-}
-
 section {
     text-align: center;
-    padding: 3rem 0;
+    padding: 3em 0;
 }
 
 .divider-container {
@@ -32,18 +28,16 @@ section {
 .others-element-right {
     @extend .login-control;
     margin-left: 2px;
+    flex: 1;
 }
 
 .others-element-left {
     @extend .login-control;
     margin-right: 2px;
+    flex: 2;
 }
 
 mat-divider {
-    margin-bottom: 1em;
-}
-
-.login-element {
-    @extend .login-control;
+    margin-top: 1em;
     margin-bottom: 1em;
 }
