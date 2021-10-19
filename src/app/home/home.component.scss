@@ -28,6 +28,13 @@ mat-toolbar-row {
     }
 }
 
+.enter-button {
+    @extend .ripple-container;
+    color: #522f92 !important;
+    background-color: #ffd740 !important;
+    border-radius: 30% !important;
+}
+
 .ripple-container {
     cursor: pointer;
     text-align: center;
