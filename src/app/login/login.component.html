@@ -11,13 +11,14 @@
                 <input matInput>
                 <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
-            <button mat-raised-button color="primary" class="login-control">ورود</button>
+            <button mat-raised-button color="accent" class="login-control">ورود</button>
             <mat-divider></mat-divider>
             <div class="others-container">
-                <button mat-stroked-button color="primary" class="others-element-right">ثبت نام</button>
+                <a routerLink="/signup" routerLinkActive="active-link">
+                    <button mat-stroked-button color="primary" class="others-element-right">ثبت نام</button>
+                </a>
                 <button mat-stroked-button color="warn" class="others-element-left">یادآوری کلمه عبور</button>
             </div>
-            
         </div>
     </div>
 </section>

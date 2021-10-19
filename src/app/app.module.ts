@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomePageComponent } from './home/home.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HomePageComponent } from './home/home.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    HomePageComponent
+    HomePageComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

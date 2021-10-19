@@ -5,7 +5,7 @@
     background-color: white;
     padding: 2em;
 }
-.login-control {
+.signup-control {
     margin: 0 auto;
     display: block;
     width: 100%;
@@ -26,13 +26,13 @@ section {
 }
 
 .others-element-right {
-    @extend .login-control;
+    @extend .signup-control;
     margin-left: 2px;
     flex: 1;
 }
 
 .others-element-left {
-    @extend .login-control;
+    @extend .signup-control;
     margin-right: 2px;
     flex: 2;
 }
