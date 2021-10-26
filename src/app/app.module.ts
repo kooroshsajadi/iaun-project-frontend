@@ -19,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomePageComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
+import { PanelComponent } from './panel/panel.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FooterComponent } from './footer/footer.component';
     DashboardComponent,
     HomePageComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
