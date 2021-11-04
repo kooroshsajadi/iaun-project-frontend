@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
+import { ServiceService } from 'src/app/services/service.service';
 
 /** @title Responsive sidenav */
 @Component({
@@ -10,8 +11,11 @@ import {MediaMatcher} from '@angular/cdk/layout';
 export class PanelComponent implements OnInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
+
   private _mobileQueryListener: () => void;
+
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
+  
   fillerContent = Array.from({length: 50}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -20,10 +24,14 @@ export class PanelComponent implements OnInit, OnDestroy {
        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
   serviceName: string = "خدمت";
   
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addEventListener('change', this._mobileQueryListener);
+  constructor (
+    changeDetectorRef: ChangeDetectorRef
+    , media: MediaMatcher
+    , public serviceService: ServiceService
+    ) {
+      this.mobileQuery = media.matchMedia('(max-width: 600px)');
+      this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+      this.mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
   ngOnDestroy(): void {
@@ -31,6 +39,9 @@ export class PanelComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // var t = this.serviceService.get().subscribe(result => {
+    //   debugger;
+    //   var t = result;
+    // });
   }
-
 }
