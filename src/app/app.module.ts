@@ -24,6 +24,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { ServiceDirective } from './service.directive';
+import { ConsultantServiceComponent } from './components/consultant-service/consultant-service.component';
+import { PetitionServiceComponent } from './components/petition-service/petition-service.component';
+import { ComplaintServiceComponent } from './components/complaint-service/complaint-service.component';
+import { SpaServiceComponent } from './components/spa-service/spa-service.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { ServiceDirective } from './service.directive';
     SignupComponent,
     FooterComponent,
     PanelComponent,
-    ServiceDirective
+    ServiceDirective,
+    ConsultantServiceComponent,
+    PetitionServiceComponent,
+    ComplaintServiceComponent,
+    SpaServiceComponent
   ],
   imports: [
     BrowserModule,
