@@ -23,6 +23,7 @@ import { HomePageComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PanelComponent } from './components/panel/panel.component';
+import { ServiceDirective } from './service.directive';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { PanelComponent } from './components/panel/panel.component';
     HomePageComponent,
     SignupComponent,
     FooterComponent,
-    PanelComponent
+    PanelComponent,
+    ServiceDirective
   ],
   imports: [
     BrowserModule,

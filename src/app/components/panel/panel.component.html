@@ -9,30 +9,15 @@
         <mat-sidenav #snav [opened]="!mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'"
         [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <mat-nav-list>
-                <!-- <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a> -->
-                <a mat-list-item role="listitem">مشاوره</a>
-                <a mat-list-item role="listitem">تنظیم دادخواست</a>
-                <a mat-list-item role="listitem">تنظیم شکایت نامه</a>
-                <a mat-list-item role="listitem">تنظیم مبایعه نامه</a>
-                <!-- <li>
-                    <a routerLink=".">مشاوره</a>
-                </li>
-
-                <li>
-                    <a routerLink=".">تنظیم دادخواست</a>
-                </li>
-
-                <li>
-                    <a routerLink=".">تنظیم شکایت نامه</a>
-                </li>
-
-                <li>
-                    <a routerLink=".">تنظیم مبایعه نامه</a>
-                </li> -->
+                <a mat-list-item role="listitem" (click)="alterUi($event)">مشاوره</a>
+                <a mat-list-item role="listitem" (click)="alterUi($event)">تنظیم دادخواست</a>
+                <a mat-list-item role="listitem" (click)="alterUi($event)">تنظیم شکایت نامه</a>
+                <a mat-list-item role="listitem" (click)="alterUi($event)">تنظیم مبایعه نامه</a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
             <p *ngFor="let content of fillerContent">{{content}}</p>
+            <ng-template appService></ng-template>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
