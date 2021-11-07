@@ -1,5 +1,5 @@
 import { Component, Injectable, Input, OnInit } from '@angular/core';
-import { ServiceComponent } from 'src/app/service-component.component';
+import { ServiceComponent } from 'src/app/service-component.interface';
 
 @Component({
   selector: 'app-spa-service',

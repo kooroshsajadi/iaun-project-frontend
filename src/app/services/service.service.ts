@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ComplaintServiceComponent } from '../components/complaint-service/complaint-service.component';
 import { ConsultantServiceComponent } from '../components/consultant-service/consultant-service.component';
@@ -26,15 +26,15 @@ export class ServiceService {
       ),
       new ServiceItem(
         PetitionServiceComponent,
-        { name: 'دادخواست', bio: 'Smart as they come' }
+        { name: 'تنظیم دادخواست', bio: 'Smart as they come' }
       ),
       new ServiceItem(
         ComplaintServiceComponent,
-        { headline: 'شکایت نامه', body: 'Submit your resume today!' }
+        { name: 'تنظیم شکایت نامه', body: 'Submit your resume today!' }
       ),
       new ServiceItem(
         SpaServiceComponent,
-        { headline: 'مبایعه نامه', body: 'Apply today' }
+        { name: 'تنظیم مبایعه نامه', body: 'Apply today' }
       )
     ];
   }
