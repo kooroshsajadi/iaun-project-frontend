@@ -1,6 +1,8 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ComponentFactoryResolver, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { ServiceService } from 'src/app/services/service.service';
+import { ServiceItem } from 'src/app/service-item';
+import { ServiceDirective } from 'src/app/service.directive';
 
 /** @title Responsive sidenav */
 @Component({
@@ -8,13 +10,12 @@ import { ServiceService } from 'src/app/services/service.service';
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.scss']
 })
+
 export class PanelComponent implements OnInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
-
-  fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
   
   fillerContent = Array.from({length: 50}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -24,31 +25,42 @@ export class PanelComponent implements OnInit, OnDestroy {
        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
 
   serviceName: string = "خدمت";
+
+  @Input() services: ServiceItem[] = [];
   
   constructor (
     changeDetectorRef: ChangeDetectorRef
     , media: MediaMatcher
-    , public serviceService: ServiceService
+    , private serviceService: ServiceService
+    , private componenntFactoryResolver: ComponentFactoryResolver 
     ) {
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       this._mobileQueryListener = () => changeDetectorRef.detectChanges();
       this.mobileQuery.addEventListener('change', this._mobileQueryListener);
+      this.services = this.serviceService.getServices();
   }
+
+  @ViewChild(ServiceDirective, {static: true}) appService!: ServiceDirective;
 
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
   ngOnInit(): void {
-    // var t = this.serviceService.get().subscribe(result => {
-    //   debugger;
-    //   var t = result;
-    // });
   }
 
   alterUi(event: any) {
-    debugger;
+    var serviceItemIndex = event.srcElement.attributes.id || event.currentTarget.id;
+    this.loadComponent(serviceItemIndex);
     var clickedServiceName = event.target.innerText;
     this.serviceName = clickedServiceName;
+  }
+
+  private loadComponent(serviceIndex: number) {
+    const serviceItem = this.services[serviceIndex];
+    const viewContainerRef = this.appService.viewContainerRef;
+    viewContainerRef.clear();
+    const componentRef = viewContainerRef.createComponent(this.componenntFactoryResolver.resolveComponentFactory(serviceItem.component));
+    componentRef.instance.data = serviceItem.data;
   }
 }

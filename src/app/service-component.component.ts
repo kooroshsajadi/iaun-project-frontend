@@ -1,3 +1,3 @@
 export interface ServiceComponent {
-    Data: any;
+    data: any;
 }

@@ -9,14 +9,14 @@
         <mat-sidenav #snav [opened]="!mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'"
         [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <mat-nav-list>
-                <a mat-list-item role="listitem" (click)="alterUi($event)">مشاوره</a>
-                <a mat-list-item role="listitem" (click)="alterUi($event)">تنظیم دادخواست</a>
-                <a mat-list-item role="listitem" (click)="alterUi($event)">تنظیم شکایت نامه</a>
-                <a mat-list-item role="listitem" (click)="alterUi($event)">تنظیم مبایعه نامه</a>
+                <a mat-list-item id="0" role="listitem" (click)="alterUi($event)">مشاوره</a>
+                <a mat-list-item id="1" role="listitem" (click)="alterUi($event)">تنظیم دادخواست</a>
+                <a mat-list-item id="2" role="listitem" (click)="alterUi($event)">تنظیم شکایت نامه</a>
+                <a mat-list-item id="3" role="listitem" (click)="alterUi($event)">تنظیم مبایعه نامه</a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
-            <p *ngFor="let content of fillerContent">{{content}}</p>
+            <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
             <ng-template appService></ng-template>
         </mat-sidenav-content>
     </mat-sidenav-container>
