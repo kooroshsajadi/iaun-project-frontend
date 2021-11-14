@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Injectable } from '@angular/core';
-import { ServiceComponent } from 'src/app/service-component.interface';
+import { ServiceComponent } from 'src/app/service-component.component';
 
 @Component({
   selector: 'app-complaint-service',
