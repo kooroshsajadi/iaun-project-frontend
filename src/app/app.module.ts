@@ -28,6 +28,7 @@ import { ConsultantServiceComponent } from './components/consultant-service/cons
 import { PetitionServiceComponent } from './components/petition-service/petition-service.component';
 import { ComplaintServiceComponent } from './components/complaint-service/complaint-service.component';
 import { SpaServiceComponent } from './components/spa-service/spa-service.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -59,7 +60,9 @@ import { SpaServiceComponent } from './components/spa-service/spa-service.compon
     MatDividerModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

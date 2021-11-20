@@ -1,19 +1,20 @@
 <section>
     <div class="container" dir="rtl">
-        <div class="form-group">
+        <div class="form-group" (ngSubmit)="onSubmit()">
             <mat-form-field appearance="outline" class="login-control">
                 <mat-label>نام کاربری</mat-label>
-                <input matInput>
+                <input matInput [formControl]="username">
                 <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
             <mat-form-field appearance="outline" class="login-control">
                 <mat-label>کلمه عبور</mat-label>
-                <input matInput>
+                <input matInput [type]="'password'" [formControl]="password">
                 <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
-            <a routerLink="/panel" routerLinkActive="active-link">
+            <!-- <a routerLink="/panel" routerLinkActive="active-link">
                 <button mat-raised-button color="accent" class="login-control">ورود</button>
-            </a>
+            </a> -->
+            <button mat-raised-button color="accent" class="login-control" (click)="onSubmit()">ورود</button>
             <mat-divider></mat-divider>
             <div class="others-container">
                 <a routerLink="/signup" routerLinkActive="active-link">

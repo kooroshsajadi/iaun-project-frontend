@@ -3,6 +3,10 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import { ServiceService } from 'src/app/services/service.service';
 import { ServiceItem } from 'src/app/service-item';
 import { ServiceDirective } from 'src/app/service.directive';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { first } from 'rxjs/operators';
+import { User } from 'src/app/models/user';
 
 /** @title Responsive sidenav */
 @Component({
@@ -27,17 +31,22 @@ export class PanelComponent implements OnInit, OnDestroy {
   serviceName: string = "خدمت";
 
   @Input() services: ServiceItem[] = [];
+
+  user: User = new User();
   
   constructor (
     changeDetectorRef: ChangeDetectorRef
     , media: MediaMatcher
     , private serviceService: ServiceService
-    , private componenntFactoryResolver: ComponentFactoryResolver 
+    , private componenntFactoryResolver: ComponentFactoryResolver
+    , private route: ActivatedRoute
+    , private userService: UserService
     ) {
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       this._mobileQueryListener = () => changeDetectorRef.detectChanges();
       this.mobileQuery.addEventListener('change', this._mobileQueryListener);
       this.services = this.serviceService.getServices();
+      this.user.id = this.route.snapshot.paramMap.get('id') ?? '';
   }
 
   @ViewChild(ServiceDirective, {static: true}) appService!: ServiceDirective;
@@ -47,6 +56,7 @@ export class PanelComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.getUser(this.user.id ?? '');
   }
 
   alterUi(event: any) {
@@ -62,5 +72,19 @@ export class PanelComponent implements OnInit, OnDestroy {
     viewContainerRef.clear();
     const componentRef = viewContainerRef.createComponent(this.componenntFactoryResolver.resolveComponentFactory(serviceItem.component));
     componentRef.instance.data = serviceItem.data;
+  }
+
+  getUser(id: string) {
+    this.userService.get(id)
+            .pipe(first())
+            .subscribe(
+              (data: any) => {
+                debugger;
+                    this.user = data;
+                },
+                () => {
+                    // this.alertService.error(error);
+                    // this.loading = false;
+                });
   }
 }

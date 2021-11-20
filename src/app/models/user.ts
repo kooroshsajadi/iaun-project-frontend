@@ -1,16 +1,16 @@
 export class User {
-    id!: string;
-    username!: string;
-    password!: string;
-    token!: string;
-    personalInfo!: PersonalInformation;
-    contactInfo!: ContactInformation;
+    id: string | undefined;
+    username: string | undefined;
+    password: string | undefined;
+    token: string | undefined;
+    personalInfo: PersonalInformation | undefined;
+    contactInfo: ContactInformation | undefined;
     addressInfo: AddressInformation | undefined;
 }
 
 class PersonalInformation {
-    firstName!: string;
-    lastName!: string;
+    firstName: string | undefined;
+    lastName: string | undefined;
     birthDate: Date | undefined;
     religion: string | undefined;
     occupation: string | undefined;
