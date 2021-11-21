@@ -29,6 +29,8 @@ import { PetitionServiceComponent } from './components/petition-service/petition
 import { ComplaintServiceComponent } from './components/complaint-service/complaint-service.component';
 import { SpaServiceComponent } from './components/spa-service/spa-service.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserFullnamePipe } from './helpers/user-fullname.pipe';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ConsultantServiceComponent,
     PetitionServiceComponent,
     ComplaintServiceComponent,
-    SpaServiceComponent
+    SpaServiceComponent,
+    UserFullnamePipe
   ],
   imports: [
     BrowserModule,
@@ -62,9 +65,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSidenavModule,
     MatListModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [UserFullnamePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

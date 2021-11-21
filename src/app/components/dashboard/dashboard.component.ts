@@ -27,13 +27,11 @@ export class DashboardComponent implements OnInit {
   }
 
   getUser(id: string) {
-    debugger;
     this.userService.get(id)
             .pipe(first())
             .subscribe(
               (data: any) => {
-                debugger;
-                    this.user = data;
+                  this.user = data;
                 },
                 () => {
                     // this.alertService.error(error);

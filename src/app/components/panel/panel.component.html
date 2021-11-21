@@ -4,6 +4,15 @@
             <mat-icon>menu</mat-icon>
         </button>
         <h1 class="service-name">{{serviceName}}</h1>
+        <button mat-button [matMenuTriggerFor]="menu"  class="profile-menu-button" aria-label="Menu button that opens the user options" (click)="changeIcon()" #menuTrigger="matMenuTrigger">
+            {{this.userFullnameShowCase}}
+            <mat-icon class="profile-menu-icon" [inline]="true">{{menuIcon}}</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <button mat-menu-item class="profile-menu-item">پروفایل</button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item class="profile-menu-item" (click)="onExitClick()">خروج</button>
+        </mat-menu>
     </mat-toolbar>
     <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0" dir="rtl">
         <mat-sidenav #snav [opened]="!mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'"

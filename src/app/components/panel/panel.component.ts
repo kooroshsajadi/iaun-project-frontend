@@ -3,10 +3,13 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import { ServiceService } from 'src/app/services/service.service';
 import { ServiceItem } from 'src/app/service-item';
 import { ServiceDirective } from 'src/app/service.directive';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { first } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
+import { UserFullnamePipe } from 'src/app/helpers/user-fullname.pipe';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { AccountService } from 'src/app/services/account.service';
 
 /** @title Responsive sidenav */
 @Component({
@@ -16,6 +19,8 @@ import { User } from 'src/app/models/user';
 })
 
 export class PanelComponent implements OnInit, OnDestroy {
+  @ViewChild(MatMenuTrigger)
+  trigger!: MatMenuTrigger;
 
   mobileQuery: MediaQueryList;
 
@@ -33,6 +38,9 @@ export class PanelComponent implements OnInit, OnDestroy {
   @Input() services: ServiceItem[] = [];
 
   user: User = new User();
+  userFullnameShowCase: string = '';
+
+  menuIcon = 'keyboard_arrow_down';
   
   constructor (
     changeDetectorRef: ChangeDetectorRef
@@ -41,6 +49,9 @@ export class PanelComponent implements OnInit, OnDestroy {
     , private componenntFactoryResolver: ComponentFactoryResolver
     , private route: ActivatedRoute
     , private userService: UserService
+    , private userFullname: UserFullnamePipe
+    , private accountService: AccountService
+    , private router: Router,
     ) {
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -79,12 +90,22 @@ export class PanelComponent implements OnInit, OnDestroy {
             .pipe(first())
             .subscribe(
               (data: any) => {
-                debugger;
                     this.user = data;
+                    this.userFullnameShowCase = this.userFullname.transform(this.user);
                 },
                 () => {
                     // this.alertService.error(error);
                     // this.loading = false;
                 });
+  }
+
+  changeIcon() {
+    this.trigger.menuClosed.subscribe(() => this.menuIcon = 'keyboard_arrow_down');
+    this.trigger.menuOpened.subscribe(() => this.menuIcon = 'keyboard_arrow_up');
+  }
+
+  onExitClick() {
+    this.accountService.logout();
+    this.router.navigate(['']);
   }
 }

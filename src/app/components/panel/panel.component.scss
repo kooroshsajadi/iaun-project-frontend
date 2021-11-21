@@ -1,3 +1,8 @@
+$hovered-backgroundcolor : #3c236b;
+$selected-backgroundcolor : #522f92;
+$hovered-color: #e3cd78;
+$secondary-color: #ffd740;
+
 .container {
     display: flex;
     flex-direction: column;
@@ -29,4 +34,21 @@
 
 h1.service-name {
     margin-right: 8px;
-  }
+}
+
+.profile-menu-button {
+    background-color: rgb(25, 185, 46);
+    border: none;
+    color: white;
+    border-radius: 16px;
+    margin-right: auto;
+    width: 7rem;
+}
+
+.profile-menu-item {
+    text-align: right;
+}
+
+.profile-menu-icon {
+    font-size: small;
+}
