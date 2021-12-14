@@ -3,6 +3,12 @@ $selected-backgroundcolor : #522f92;
 $hovered-color: #e3cd78;
 $secondary-color: #ffd740;
 
+
+@import '../../../assets/fonts/IRANSansWeb/webfonts/css/fontiran.css';
+body {
+    font-family: 'IRAN' !important;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -11,12 +17,14 @@ $secondary-color: #ffd740;
     bottom: 0;
     left: 0;
     right: 0;
+    font-family: 'IRAN' !important;
 }
 
 .platform-is-mobile .panel-toolbar {
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
+    font-family: 'IRAN' !important;
 }
 
 
@@ -24,16 +32,19 @@ $secondary-color: #ffd740;
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
+    font-family: 'IRAN' !important;
 }
   
 .platform-is-mobile .sidenav-container {
     /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
         `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
+    font-family: 'IRAN' !important;
 }
 
 h1.service-name {
     margin-right: 8px;
+    font-family: 'IRAN' !important;
 }
 
 .profile-menu-button {
@@ -47,6 +58,7 @@ h1.service-name {
 
 .profile-menu-item {
     text-align: right;
+    font-family: 'IRAN' !important;
 }
 
 .profile-menu-icon {
