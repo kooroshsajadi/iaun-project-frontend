@@ -1,0 +1,59 @@
+$hovered-backgroundcolor : #3c236b;
+$selected-backgroundcolor : #522f92;
+$hovered-color: #e3cd78;
+$secondary-color: #ffd740;
+
+@import '../../../assets/fonts/IRANSansWeb/webfonts/css/fontiran.css';
+body {
+    font-family: 'IRAN' !important;
+}
+@mixin user-select($property) {
+    user-select: $property;
+    -webkit-user-select: $property;
+    -moz-user-select: $property;
+    -ms-user-select: $property;
+  }
+
+.toolbar-spacer {
+    flex: {
+        grow: 1;
+        shrink: 1;
+        basis: auto;
+    }
+}
+
+mat-toolbar-row {
+    a {
+        color: inherit;
+    }
+    a:hover {
+        color: $hovered-color;
+        background-color: $hovered-backgroundcolor;
+    }
+}
+
+.enter-button {
+    @extend .ripple-container;
+    color: #522f92 !important;
+    background-color: #ffd740 !important;
+    border-radius: 30% !important;
+}
+
+.ripple-container {
+    cursor: pointer;
+    text-align: center;
+    padding: 0.1em 0.4em;
+    border-radius: 10%;
+  
+    @include user-select(none);
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    font-family: 'IRAN' !important
+}

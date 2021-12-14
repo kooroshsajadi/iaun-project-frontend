@@ -1,0 +1,34 @@
+<div class="container" [class.platform-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="panel-toolbar">
+        <button mat-mini-fab color="accent" aria-label="Menu button that opens the side nav" (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="service-name">{{serviceName}}</h1>
+        <button mat-button [matMenuTriggerFor]="menu"  class="profile-menu-button" aria-label="Menu button that opens the user options" (click)="changeIcon()" #menuTrigger="matMenuTrigger">
+            {{this.userFullnameShowCase}}
+            <mat-icon class="profile-menu-icon" [inline]="true">{{menuIcon}}</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <button mat-menu-item class="profile-menu-item">پروفایل</button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item class="profile-menu-item" (click)="onExitClick()">خروج</button>
+        </mat-menu>
+    </mat-toolbar>
+    <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0" dir="rtl">
+        <mat-sidenav #snav [opened]="!mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            <mat-nav-list >
+                <a mat-list-item id="0" role="listitem" (click)="alterUi($event)" style="font-family: 'IRAN' !important;">مشاوره</a>
+                <a mat-list-item id="1" role="listitem" (click)="alterUi($event)" style="font-family: 'IRAN' !important;">تنظیم دادخواست</a>
+                <a mat-list-item id="2" role="listitem" (click)="alterUi($event)" style="font-family: 'IRAN' !important;">تنظیم شکایت نامه</a>
+                <a mat-list-item id="3" role="listitem" (click)="alterUi($event)" style="font-family: 'IRAN' !important;">تنظیم مبایعه نامه</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <!-- <div class="container">
+                <img src="../../../assets/images/Landing.png">
+            </div> -->
+            <ng-template appService></ng-template>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

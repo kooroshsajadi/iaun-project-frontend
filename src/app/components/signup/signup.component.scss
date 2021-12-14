@@ -1,0 +1,61 @@
+@import '../../../assets/fonts/IRANSansWeb/webfonts/css/fontiran.css';
+body {
+    font-family: 'IRAN' !important;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    width: max-content;
+    background-color: white;
+    padding: 2em;
+    font-family: 'IRAN' !important
+}
+.signup-control {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    font-family: 'IRAN' !important;
+}
+
+section {
+    text-align: center;
+    padding: 3em 0;
+    font-family: 'IRAN' !important;
+}
+
+.divider-container {
+    display: flex;
+    font-family: 'IRAN' !important;
+}
+
+.others-container {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IRAN' !important;
+}
+
+.others-element-right {
+    @extend .signup-control;
+    margin-left: 2px;
+    flex: 1;
+    font-family: 'IRAN' !important;
+}
+
+.others-element-left {
+    @extend .signup-control;
+    margin-right: 2px;
+    flex: 2;
+    font-family: 'IRAN' !important;
+}
+
+mat-divider {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: 'IRAN' !important;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'IRAN' !important;
+}

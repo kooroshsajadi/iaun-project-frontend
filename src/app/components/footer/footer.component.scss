@@ -1,0 +1,21 @@
+$hovered-backgroundcolor : #3c236b;
+$selected-backgroundcolor : #522f92;
+$hovered-color: #e3cd78;
+$secondary-color: #ffd740;
+
+.flex-container {
+    // text-align: center;
+    padding: 3px;
+    background-color: $selected-backgroundcolor;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
